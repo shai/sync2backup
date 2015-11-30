@@ -1,0 +1,6 @@
+---
+drive_list:
+ c:
+  src:
+   - 'bin'
+  dst: 'w:\drive_c'
