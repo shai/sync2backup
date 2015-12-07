@@ -34,12 +34,14 @@ begin
     driveList.each do |drive, srcNdst| # hash ; iterate over drives
       srcNdst[0]['src'].each do |srcDirectory| # array ; iterate over source directories
         srcDirectory.each do |src, value|
-          arr = Array.new
-          value[0]['excludeDir'].each do |x|
-            arr.push x
+          if value
+            arr = Array.new
+            value[0]['excludeDir'].each do |x|
+              arr.push x
+            end
+            arr = arr.join(' ') # create a string from the array
+            @arr = arr.chomp('"').reverse.chomp('"').reverse # remove leading and tailing double quotes of the string to be used in the command
           end
-          arr = arr.join(' ') # create a string from the array
-          @arr = arr.chomp('"').reverse.chomp('"').reverse # remove leading and tailing double quotes of the string to be used in the command
         end
         src_clean = srcDirectory.first[0].gsub(/[\/\\]/, '_') # we replace slashes/backslashes from path and replace with underscore to be used in the log filename
         initialize_log_file(src_clean, false)
