@@ -41,6 +41,8 @@ begin
             end
             arr = arr.join(' ') # create a string from the array
             @arr = arr.chomp('"').reverse.chomp('"').reverse # remove leading and tailing double quotes of the string to be used in the command
+          else
+            @arr = ''
           end
         end
         src_clean = srcDirectory.first[0].gsub(/[\/\\]/, '_') # we replace slashes/backslashes from path and replace with underscore to be used in the log filename
