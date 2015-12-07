@@ -1,0 +1,21 @@
+---
+drive_list:
+ - c:
+    - src:
+      - "Users\\shai\\Pictures\\Lightroom":
+        - excludeDir:
+          - '*.lrdata' # use single quote to allow using asterisks
+      - 'Users/shai':
+        - excludeDir:
+          - '*.lrdata' # use single quote to allow using asterisks
+          - \"C:\\Users\\shai\\AppData\\Local\\Application Data\" # handle spaces in directory names
+          - \"C:\\Users\\shai\\Local Settings\" # handle spaces in directory names
+          - "C:\\Users\\shai\\AppData\\Local\\Temp"
+          - "C:\\Users\\shai\\AppData\\Local\\Microsoft"
+          - 'c:\Users\shai\.IntelliJIdea14' # use single quote to allow directories that start with a period
+    - dst: 'e:\c_drive_backup'
+mail_to: 'shai@example.com'
+mail_from: 'shai@example.com'
+smtp: aspmx.l.google.com # this is just an example. You should change this SMTP to your own
+smtp_port: 25
+robocopyExtraParam: '/L' # this is just an example. /L allows for dry-run (see robocopy manual)
